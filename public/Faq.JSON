@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "1. How does the roommate matching process work?",
+    "answer": "Our platform uses your preferences, lifestyle choices, and location to suggest potential roommate matches. You can then chat with them and decide if it’s a good fit."
+  },
+  {
+    "id": 2,
+    "question": "2. Is it free to create a profile?",
+    "answer": "Yes, creating a profile and browsing roommate listings is completely free. Some premium features may require a subscription."
+  },
+  {
+    "id": 3,
+    "question": "3. How do I ensure my safety while meeting potential roommates?",
+    "answer": "We recommend meeting in public places first, video calling before meeting in person, and letting a friend or family member know your plans. All users are encouraged to verify their identity for added trust."
+  },
+  {
+    "id": 4,
+    "question": "4. Can I list my room for rent on the platform?",
+    "answer": "Absolutely. You can create a listing under your profile, add photos, rental details, and specify the kind of roommate you're looking for."
+  },
+  {
+    "id": 5,
+    "question": "5. What happens if I have a conflict with my roommate?",
+    "answer": "We encourage open communication and mutual respect. If needed, you can report users through our platform or contact our support team for assistance."
+  },
+  {
+    "id": 6,
+    "question": "6. Are all roommate profiles verified?",
+    "answer": "We have an optional verification system. Verified badges are shown on profiles that have completed ID or phone verification."
+  },
+  {
+    "id": 7,
+    "question": "7. Can I search for roommates in a specific city or college area?",
+    "answer": "Yes, you can filter search results by city, neighborhood, university, budget range, and more to find roommates in your preferred area."
+  },
+  {
+    "id": 8,
+    "question": "8. How do I update or delete my listing?",
+    "answer": "Go to your dashboard, where you can easily edit or remove your listings anytime."
+  },
+  {
+    "id": 9,
+    "question": "9. Can I find roommates for short-term stays?",
+    "answer": "Yes, we support listings for both long-term and short-term stays. Just set the duration when creating or filtering listings."
+  },
+  {
+    "id": 10,
+    "question": "10. How do I report a suspicious user or scam?",
+    "answer": "Use the 'Report' button on any profile or message. Our moderation team reviews all reports to keep the platform safe for everyone."
+  }
+]
