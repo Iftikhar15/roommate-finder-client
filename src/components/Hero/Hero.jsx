@@ -28,7 +28,7 @@ const CounterCard = ({ start, end, duration, label }) => {
 const Hero = () => {
   return (
     <div >
-      <div className="carousel w-8/12 mx-auto flex h-[300px] sm:h-[400px] md:h-[600px] lg:h-[800px] rounded-2xl">
+      <div className="carousel w-8/12 mx-auto flex h-[300px] sm:h-[400px] md:h-[600px] lg:h-[500px] rounded-2xl">
 
         <Swiper
           spaceBetween={50}

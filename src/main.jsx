@@ -9,6 +9,14 @@ import {
 import Home from './components/Home/Home.jsx';
 
 import Root from './Layouts/Root.jsx';
+import Login from './Pages/Login.jsx';
+import Register from './Pages/Register.jsx';
+import BrowseListings from './Pages/BrowseListings.jsx';
+import Whyus from './Pages/Whyus.jsx';
+import FindMate from './Pages/FindMate.jsx';
+import MyListings from './Pages/MyListings.jsx';
+import Profile from './Pages/Profile.jsx';
+import Error from './Pages/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +26,38 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: 'login',
+        element: <Login/>
+      },
+      {
+        path: 'register',
+        element: <Register/>
+      },
+      {
+        path: 'browselinstings',
+        element: <BrowseListings/>
+      },
+      {
+        path: 'why-us',
+        element: <Whyus/>
+      },
+      {
+        path: 'findRoommate',
+        element: <FindMate/>
+      },
+      {
+        path: 'mylistings',
+        element: <MyListings/>
+      },
+      {
+        path: 'profile',
+        element: <Profile/>
+      },
+      {
+        path: '*',
+        element: <Error/>
       }
       
     ]

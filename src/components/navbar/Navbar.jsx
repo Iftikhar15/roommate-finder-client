@@ -8,9 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    // console.log(AuthContext);
-    const user = useContext(AuthContext);
-    console.log(user);
+    const { user, signOutUser } = useContext(AuthContext);
     
     
     
@@ -31,12 +29,12 @@ const Navbar = () => {
 
         <>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/category">Category</NavLink></li>
+            <li><NavLink to="/browselinstings">Browse Listings</NavLink></li>
             <li><NavLink to="/why-us">Why Us!</NavLink></li>
             {user && (
                 <>
-                    <li><NavLink to="/packages">Packages</NavLink></li>
-                    <li><NavLink to="/profile">Profile</NavLink></li>
+                    <li><NavLink to="/findRoommate">Add to Find Roommate</NavLink></li>
+                    <li><NavLink to="/mylistings">My Listings</NavLink></li>
                 </>
             )}
         </>
