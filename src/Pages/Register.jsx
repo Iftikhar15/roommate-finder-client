@@ -4,7 +4,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
-// import Spinner from '../Spinner/spinner';
+import Spinner from '../components/Spinner/Spinner';
 import { toast } from 'react-toastify';
 
 

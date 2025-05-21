@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-// import Spinner from '../Spinner/spinner';
+import Spinner from '../components/Spinner/Spinner';
 import { toast } from 'react-toastify';
 
 const Login = () => {

@@ -55,7 +55,7 @@ const Navbar = () => {
                 </div>
                 <img className='w-10 h-10' src={navLogo} alt="Logo" />
                  <NavLink to="/" className="btn btn-ghost text-xl lg:hidden">HM</NavLink>
-                <NavLink to="/" className="btn btn-ghost text-2xl hidden lg:block">Hi<span className='text-cyan-500'>Mate</span></NavLink>
+                <NavLink to="/" className="btn btn-ghost text-2xl hidden lg:block">Hi<span className='text-cyan-500'>Mate!</span></NavLink>
 
             </div>
 

@@ -5,7 +5,7 @@ import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
-} from 'react-router-dom'; 
+} from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
 
 import Root from './Layouts/Root.jsx';
@@ -17,49 +17,58 @@ import FindMate from './Pages/FindMate.jsx';
 import MyListings from './Pages/MyListings.jsx';
 import Profile from './Pages/Profile.jsx';
 import Error from './Pages/Error.jsx';
+import PostDetails from './Pages/PostDetails.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root/>, 
+    element: <Root />,
     children: [
       {
         index: true,
+        loader: () => fetch('http://localhost:3000/roommates'),
         element: <Home />
       },
       {
         path: 'login',
-        element: <Login/>
+        element: <Login />
       },
       {
         path: 'register',
-        element: <Register/>
+        element: <Register />
       },
       {
         path: 'browselinstings',
-        element: <BrowseListings/>
+        element: <BrowseListings />
       },
       {
         path: 'why-us',
-        element: <Whyus/>
+        element: <Whyus />
       },
       {
         path: 'findRoommate',
-        element: <FindMate/>
+        element: <FindMate />
       },
       {
         path: 'mylistings',
-        element: <MyListings/>
+        element: <MyListings />
       },
       {
         path: 'profile',
-        element: <Profile/>
+        element: <Profile />
       },
       {
+        path: 'postDetails/:_id',
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/roommates/${params._id}`),
+        element: <PostDetails />
+      },
+
+      {
         path: '*',
-        element: <Error/>
+        element: <Error />
       }
-      
+
     ]
   }
 ]);
@@ -67,7 +76,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
