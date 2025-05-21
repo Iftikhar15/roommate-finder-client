@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/roommates'),
+        loader: () => fetch('http://localhost:3000/roommates?isAvailable=true'),
         element: <Home />
       },
       {
@@ -39,6 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'browselinstings',
+        loader: () => fetch('http://localhost:3000/roommates'),
         element: <BrowseListings />
       },
       {
@@ -59,17 +60,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'postDetails/:_id',
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params._id}`),
+        loader: () => fetch('http://localhost:3000/roommates'), 
         element: <PostDetails />
-      },
-
-      {
-        path: '*',
-        element: <Error />
       }
-
     ]
+  },
+  {
+    path: '*',
+    element: <Error />,
   }
 ]);
 

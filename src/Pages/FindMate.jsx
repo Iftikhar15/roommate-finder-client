@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Contexts/AuthContext';
+import { useNavigate } from 'react-router';
 
 const FindMate = () => {
+    const {user}= useContext(AuthContext);
+    const Navigate = useNavigate();
+
+    useEffect(() => {    
+        user === null && (Navigate('/login'))  
+    },[user, Navigate]);
+    
     const handleAddlisting = e => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const newListing = Object.fromEntries(formData.entries())
-        console.log(newListing);
+        const lowerCaseEmail = newListing.userEmail.toLowerCase();
+        newListing.userEmail = lowerCaseEmail;
 
 
         // send coffee data to the db

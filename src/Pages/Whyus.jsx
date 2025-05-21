@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhyUs = () => {
   return (
-    <section className="bg-violet-100 py-16 text-black text-center">
+    <section className="bg-violet-100 py-15 text-black text-center">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-cyan-500 mb-6">Why Choose HiRoomie?</h2>
         <p className="text-lg mb-10 text-gray-700">
