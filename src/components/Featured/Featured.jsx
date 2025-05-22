@@ -2,11 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router';
 
 const Featured = ({ matePost }) => {
-    const { _id, photo, contactInfo, description, lifeStyle, location, rentAmount, roomType, title, userEmail, userName, availability
-
-
-    } = matePost;
-
+    const { _id, photo, description, rentAmount, roomType, title, availability} = matePost;
 
     return (
         <>

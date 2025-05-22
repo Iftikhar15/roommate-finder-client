@@ -4,13 +4,18 @@ import { AuthContext } from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router';
 
 const FindMate = () => {
-    const {user}= useContext(AuthContext);
-    const Navigate = useNavigate();
+    const { user, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    useEffect(() => {    
-        user === null && (Navigate('/login'))  
-    },[user, Navigate]);
-    
+    useEffect(() => {
+        if (loading) return;
+
+        if (!user) {
+            navigate('/login');
+            return;
+        }
+    }, [user, loading, navigate]);
+
     const handleAddlisting = e => {
         e.preventDefault();
         const form = e.target;
@@ -49,6 +54,11 @@ const FindMate = () => {
 
         }
     }
+
+    if (loading) {
+        return <div className="text-center mt-10">Loading...</div>;
+    }
+    
     return (
         <div className='p-24'>
             <div className='p-12 text-center space-y-4'>

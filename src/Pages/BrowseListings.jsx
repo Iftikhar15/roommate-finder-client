@@ -1,32 +1,13 @@
-import React, { useState } from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
-import Featured from '../components/Featured/Featured';
+import React from 'react';
+import { NavLink, useLoaderData } from 'react-router';
 
 const BrowseListings = () => {
     const matePosts = useLoaderData();
-    const [listings, setListings] = useState([]);
-    const navigate = useNavigate();
-
-
-    const handleDelete = async (id) => {
-        try {
-            await fetch(`http://localhost:3000/listings/${id}`, {
-                method: 'DELETE'
-            });
-            setListings((prev) => prev.filter((item) => item._id !== id));
-        } catch (err) {
-            console.error('Delete failed:', err);
-        }
-    };
-
-    const handleUpdate = (id) => {
-        navigate(`/update-listing/${id}`);
-    };
 
     return (
         <section className='h-[calc(100vh-233px)] w-11/12 mx-auto'>
             <div className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">My Listings</h2>
+                <h2 className="text-2xl font-semibold mb-4">Browse Listings</h2>
                 <table className="w-full border border-gray-300 ">
                     <thead>
                         <tr className="bg-gray-100 text-left">
@@ -45,18 +26,17 @@ const BrowseListings = () => {
                                 <td className="p-2 border">{item.rentAmount}</td>
                                 <td className="p-2 border">{item.roomType}</td>
                                 <td className="p-2 border space-x-2">
-                                    <button
-                                        onClick={() => handleUpdate(item._id)}
-                                        className="bg-blue-500 text-white px-3 py-1 rounded"
+                                    <NavLink
+                                    to={`/postDetails/${item._id}`}
                                     >
-                                        Update
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="bg-red-500 text-white px-3 py-1 rounded"
-                                    >
-                                        Delete
-                                    </button>
+                                        <button
+                                            className="bg-cyan-500 text-white hover:bg-cyan-300 cursor-pointer px-3 py-1 rounded"
+                                        >
+                                            See More
+                                        </button>
+                                    </NavLink>
+
+
                                 </td>
                             </tr>
                         ))}

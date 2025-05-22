@@ -4,6 +4,7 @@ import Hero from '../Hero/Hero';
 import Featured from '../Featured/Featured';
 import Faq from '../Faq/Faq';
 import { useLoaderData } from 'react-router';
+import Redirect from '../Redirect/Redirect';
 
 const Home = () => {
     const matePosts = useLoaderData();
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <div>
             <Hero />
+            <Redirect/>
 
             <div>
                 <div className='mx-auto flex justify-center '>
@@ -25,6 +27,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            
 
             <Faq />
         </div>

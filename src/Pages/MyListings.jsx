@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthContext';
 
 const MyListings = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [listings, setListings] = useState([]);
     const navigate = useNavigate();
     console.log('listings', listings);
     
 
     useEffect(() => {
+        if (loading) return;
+
         if (!user) {
             navigate('/login');
             return;
@@ -28,14 +30,16 @@ const MyListings = () => {
         };
 
         fetchListings();
-    }, [user, navigate]);
+    }, [user, loading, navigate]);
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:3000/listings/${id}`, {
+            const response = await fetch(`http://localhost:3000/delete-listing?id=${id}`, {
                 method: 'DELETE'
             });
-            setListings((prev) => prev.filter((item) => item._id !== id));
+            if (response.status === 200) {
+                window.location.reload();
+            }
         } catch (err) {
             console.error('Delete failed:', err);
         }
@@ -44,6 +48,10 @@ const MyListings = () => {
     const handleUpdate = (id) => {
         navigate(`/update-listing/${id}`);
     };
+
+    if (loading) {
+        return <div className="text-center mt-10">Loading...</div>;
+    }
 
     return (
         <section className='h-[calc(100vh-233px)] w-11/12 mx-auto'>
@@ -69,13 +77,13 @@ const MyListings = () => {
                                 <td className="p-2 border space-x-2">
                                     <button
                                         onClick={() => handleUpdate(item._id)}
-                                        className="bg-blue-500 text-white px-3 py-1 rounded"
+                                        className="bg-blue-500 hover:bg-blue-200 cursor-pointer text-white px-3 py-1 rounded"
                                     >
                                         Update
                                     </button>
                                     <button
                                         onClick={() => handleDelete(item._id)}
-                                        className="bg-red-500 text-white px-3 py-1 rounded"
+                                        className="bg-red-500 hover:bg-red-200 cursor-pointer text-white px-3 py-1 rounded"
                                     >
                                         Delete
                                     </button>

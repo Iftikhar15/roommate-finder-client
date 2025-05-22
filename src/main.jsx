@@ -18,6 +18,7 @@ import MyListings from './Pages/MyListings.jsx';
 import Profile from './Pages/Profile.jsx';
 import Error from './Pages/Error.jsx';
 import PostDetails from './Pages/PostDetails.jsx';
+import UpdatePage from './Pages/UpdatePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,13 @@ const router = createBrowserRouter([
         path: 'postDetails/:_id',
         loader: () => fetch('http://localhost:3000/roommates'), 
         element: <PostDetails />
-      }
+      },
+      {
+        path: '/update-listing/:id',
+        loader: () => fetch('http://localhost:3000/roommates'), 
+        element: <UpdatePage />
+      },
+
     ]
   },
   {
