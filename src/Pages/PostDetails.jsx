@@ -16,6 +16,8 @@ const PostDetails = () => {
     const [likeCount, setLikeCount] = useState(posts.likeCount);
     const [isLiked, setIsLiked] = useState(isPostLiked);
 
+    const isOwnPost= user?.email===posts.createdBy
+
     useEffect(() => {
         if (loading) return;
         user === null && (Navigate('/login'))
@@ -120,12 +122,16 @@ const PostDetails = () => {
                             <button className="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-xl hover:bg-cyan-600 transition duration-300">
                                 Contact Now
                             </button>
-                            <button
+                            {
+                                !isOwnPost && 
+                                <button
                               onClick={ !isLiked && likeHandler}
                               className="text-4xl hover:text-cyan-500 cursor-pointer"
                             >
                                 {isLiked ? <BiSolidLike color='cyan' /> : <AiTwotoneLike />}
                             </button>
+                            }
+                            
                         </div>
 
                     </div>
