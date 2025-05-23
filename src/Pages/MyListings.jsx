@@ -9,7 +9,17 @@ const MyListings = () => {
     const [listings, setListings] = useState([]);
     const navigate = useNavigate();
     console.log('listings', listings);
+    const fetchListings = async () => {
+        try {
+            const res = await fetch(`https://roommate-finder-server-zeta.vercel.app/my-listings?email=${user.email}`);
+            const data = await res.json();
+            console.log('data ----->', data);
 
+            setListings(data?.data || []);
+        } catch (err) {
+            console.error('Failed to fetch listings:', err);
+        }
+    };
 
     useEffect(() => {
         if (loading) return;
@@ -19,17 +29,7 @@ const MyListings = () => {
             return;
         }
 
-        const fetchListings = async () => {
-            try {
-                const res = await fetch(`https://roommate-finder-server-zeta.vercel.app/my-listings?email=${user.email}`);
-                const data = await res.json();
-                console.log('data ----->', data);
 
-                setListings(data?.data || []);
-            } catch (err) {
-                console.error('Failed to fetch listings:', err);
-            }
-        };
 
         fetchListings();
     }, [user, loading, navigate]);
@@ -49,7 +49,8 @@ const MyListings = () => {
                     draggable: true,
                     theme: "light",
                 });
-                window.location.reload()
+                fetchListings();
+
             }
         } catch (err) {
             console.error('Delete failed:', err);
