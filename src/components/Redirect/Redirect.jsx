@@ -3,11 +3,11 @@ import { NavLink } from 'react-router';
 
 const Redirect = () => {
     return (
-        <div class="bg-cyan-500 px-6 relative">
+        <div class="bg-cyan-500 px-6 relative rounded-b-2xl">
             <div class="max-w-4xl mx-auto relative">
                 <div class="py-6 md:py-12 text-white text-center">
                     <h1 class="leading-snug text-4xl sm:text-5xl mb-4 animate-slide-top">
-                        USA’s largest roommate finder
+                        BD's largest roommate finder
                     </h1>
                     <h2 class="leading-snug text-xl sm:text-3xl font-medium mb-6 animate-slide-top delay-[300ms]">
                         Free to list, search & communicate

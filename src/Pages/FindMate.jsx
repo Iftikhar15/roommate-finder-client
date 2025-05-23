@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router';
+import Spinner from '../components/Spinner/Spinner';
 
 const FindMate = () => {
     const { user, loading } = useContext(AuthContext);
@@ -23,11 +24,13 @@ const FindMate = () => {
         const newListing = Object.fromEntries(formData.entries())
         const lowerCaseEmail = newListing.userEmail.toLowerCase();
         newListing.userEmail = lowerCaseEmail;
+        newListing.likeCount = 0;
+        newListing.createdBy = user.email.toLowerCase();
 
 
         // send coffee data to the db
         try {
-            fetch('http://localhost:3000/Roommates', {
+            fetch('https://roommate-finder-server-zeta.vercel.app/Roommates', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -43,7 +46,7 @@ const FindMate = () => {
                             icon: "success",
                             draggable: true
                         });
-                        // form.reset()
+                        navigate('/browselinstings')
                     }
 
 
@@ -56,7 +59,7 @@ const FindMate = () => {
     }
 
     if (loading) {
-        return <div className="text-center mt-10">Loading...</div>;
+        return <Spinner />;
     }
     
     return (

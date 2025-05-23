@@ -43,7 +43,7 @@ const UpdatePage = () => {
     const handleUpdateListing = async e => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/update-listing?id=${id}`, {
+            const response = await fetch(`https://roommate-finder-server-zeta.vercel.app/update-listing?id=${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

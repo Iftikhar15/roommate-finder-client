@@ -10,7 +10,7 @@ const BrowseListings = () => {
                 <h2 className="text-2xl font-semibold mb-4">Browse Listings</h2>
                 <table className="w-full border border-gray-300 ">
                     <thead>
-                        <tr className="bg-gray-100 text-left">
+                        <tr className="bg-cyan-200 text-left text-gray-700">
                             <th className="p-2 border">Title</th>
                             <th className="p-2 border">Location</th>
                             <th className="p-2 border">Rent</th>

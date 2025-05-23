@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/HR logo.png'
+import logo from '../../assets/HR_logo-removebg-preview.png'
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
       
       <aside>
         <NavLink to="/">
-          <img className="w-10" src={logo} alt="Logo" />
+          <img className="w-15" src={logo} alt="Logo" />
         </NavLink>
 
         <p>

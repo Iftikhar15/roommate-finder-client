@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../navbar/Navbar';
 import Hero from '../Hero/Hero';
 import Featured from '../Featured/Featured';
 import Faq from '../Faq/Faq';
 import { useLoaderData } from 'react-router';
 import Redirect from '../Redirect/Redirect';
+import Spinner from '../Spinner/Spinner';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 const Home = () => {
     const matePosts = useLoaderData();
-    console.log(matePosts);
+    const { loading } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (loading) return;
+    }, [loading])
+
+    if (loading) {
+        return <Spinner />;
+    }
 
     return (
         <div>
@@ -31,6 +41,7 @@ const Home = () => {
 
             <Faq />
         </div>
+        
     );
 };
 

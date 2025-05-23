@@ -1,25 +1,28 @@
-import { StrictMode } from 'react';
+import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import AuthProvider from './Contexts/AuthProvider.jsx';
-import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import Home from './components/Home/Home.jsx';
+import AuthProvider from './Contexts/AuthProvider.jsx';
+import './index.css';
+import Spinner from './components/Spinner/Spinner.jsx';
 
-import Root from './Layouts/Root.jsx';
-import Login from './Pages/Login.jsx';
-import Register from './Pages/Register.jsx';
-import BrowseListings from './Pages/BrowseListings.jsx';
-import Whyus from './Pages/Whyus.jsx';
-import FindMate from './Pages/FindMate.jsx';
-import MyListings from './Pages/MyListings.jsx';
-import Profile from './Pages/Profile.jsx';
-import Error from './Pages/Error.jsx';
-import PostDetails from './Pages/PostDetails.jsx';
-import UpdatePage from './Pages/UpdatePage.jsx';
+// Lazy load all components
+const Root = lazy(() => import('./Layouts/Root.jsx'));
+const Home = lazy(() => import('./components/Home/Home.jsx'));
+const Login = lazy(() => import('./Pages/Login.jsx'));
+const Register = lazy(() => import('./Pages/Register.jsx'));
+const BrowseListings = lazy(() => import('./Pages/BrowseListings.jsx'));
+const Whyus = lazy(() => import('./Pages/Whyus.jsx'));
+const FindMate = lazy(() => import('./Pages/FindMate.jsx'));
+const MyListings = lazy(() => import('./Pages/MyListings.jsx'));
+const Profile = lazy(() => import('./Pages/Profile.jsx'));
+const Error = lazy(() => import('./Pages/Error.jsx'));
+const PostDetails = lazy(() => import('./Pages/PostDetails.jsx'));
+const UpdatePage = lazy(() => import('./Pages/UpdatePage.jsx'));
 
+// Create routes
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,61 +30,94 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/roommates?isAvailable=true'),
-        element: <Home />
+        loader: () => fetch('https://roommate-finder-server-zeta.vercel.app/roommates?isAvailable=true'),
+        element:
+          <Suspense fallback={<Spinner />}>
+            <Home />
+          </Suspense>,
       },
       {
         path: 'login',
-        element: <Login />
+        element:
+          <Suspense fallback={<Spinner />}>
+            <Login />
+          </Suspense>,
+
       },
       {
         path: 'register',
-        element: <Register />
+        element:
+          <Suspense fallback={<Spinner />}>
+            <Register />
+          </Suspense>,
       },
       {
         path: 'browselinstings',
-        loader: () => fetch('http://localhost:3000/roommates'),
-        element: <BrowseListings />
+        loader: () => fetch('https://roommate-finder-server-zeta.vercel.app/roommates'),
+        element:
+          <Suspense fallback={<Spinner />}>
+            <BrowseListings />
+          </Suspense>,
       },
       {
         path: 'why-us',
-        element: <Whyus />
+        element:
+          <Suspense fallback={<Spinner />}>
+            <Whyus />
+          </Suspense>,
       },
       {
         path: 'findRoommate',
-        element: <FindMate />
+        element:
+          <Suspense fallback={<Spinner />}>
+            <FindMate />
+          </Suspense>,
       },
       {
         path: 'mylistings',
-        element: <MyListings />
+        element:
+           <Suspense fallback={<Spinner />}>
+            <MyListings />
+          </Suspense>,
       },
       {
         path: 'profile',
-        element: <Profile />
+        element: 
+          <Suspense fallback={<Spinner />}>
+            <Profile />
+          </Suspense>,
       },
       {
         path: 'postDetails/:_id',
-        loader: () => fetch('http://localhost:3000/roommates'), 
-        element: <PostDetails />
+        loader: () => fetch('https://roommate-finder-server-zeta.vercel.app/roommates'),
+        element:
+          <Suspense fallback={<Spinner />}>
+            <PostDetails />
+          </Suspense>,
       },
       {
-        path: '/update-listing/:id',
-        loader: () => fetch('http://localhost:3000/roommates'), 
-        element: <UpdatePage />
+        path: 'update-listing/:id',
+        loader: () => fetch('https://roommate-finder-server-zeta.vercel.app/roommates'),
+        element:
+          <Suspense fallback={<Spinner />}>
+            <UpdatePage />
+          </Suspense>,
       },
-
-    ]
+    ],
   },
   {
     path: '*',
     element: <Error />,
-  }
+  },
 ]);
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <Suspense fallback={<Spinner />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </AuthProvider>
   </StrictMode>
 );

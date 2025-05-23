@@ -51,7 +51,7 @@ const Faq = () => {
             <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold">FAQs</h2>
-                    <p className="text-black">Common questions and answers</p>
+                    <p className="text-gray-600">Common questions and answers</p>
                 </div>
                 <div className="space-y-4">
                     {faqs.map(({ id, question, answer }) => (

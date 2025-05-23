@@ -27,8 +27,8 @@ const CounterCard = ({ start, end, duration, label }) => {
 
 const Hero = () => {
   return (
-    <div >
-      <div className="carousel w-8/12 mx-auto flex h-[300px] sm:h-[400px] md:h-[600px] lg:h-[500px] rounded-2xl">
+    <div className='bg-cyan-500'>
+      <div className="carousel w-8/12 mx-auto flex h-[300px] sm:h-[400px] md:h-[600px] lg:h-[500px] rounded-2xl py-15">
 
         <Swiper
           spaceBetween={50}
@@ -54,8 +54,8 @@ const Hero = () => {
             <div className="relative w-full h-full">
               <img src={S2} alt="Slide 2" className="w-full h-full object-cover rounded-2xl" />
               <div className="absolute inset-0 flex items-start p-4 sm:p-10 rounded-2xl">
-                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-blue-950">
-                  aaaaaaaaaaaa 
+                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-blue-900">
+                  Because living with plants is great,<br /> <span>but living with people is better.</span> 
                 </p>
               </div>
             </div>
@@ -70,7 +70,7 @@ const Hero = () => {
               <img src={S4} alt="Slide 4" className="w-full h-full object-cover rounded-2xl" />
               <div className="absolute top-1/3 left-4 sm:left-10 bg-opacity-30 bg-transparent p-4 sm:p-10 rounded-lg">
                 <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-gray-900">
-                  aaaaaaaaaaaa <br /> ccccccccccccc
+                  Roommates that vibe together, <br />thrive together
                 </p>
               </div>
             </div>
