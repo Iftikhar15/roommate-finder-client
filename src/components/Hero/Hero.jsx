@@ -54,7 +54,7 @@ const Hero = () => {
             <div className="relative w-full h-full">
               <img src={S2} alt="Slide 2" className="w-full h-full object-cover rounded-2xl" />
               <div className="absolute inset-0 flex items-start p-4 sm:p-10 rounded-2xl">
-                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-blue-900">
+                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-blue-900 font-bold">
                   Because living with plants is great,<br /> <span>but living with people is better.</span> 
                 </p>
               </div>
@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="relative w-full h-full">
               <img src={S4} alt="Slide 4" className="w-full h-full object-cover rounded-2xl" />
               <div className="absolute top-1/3 left-4 sm:left-10 bg-opacity-30 bg-transparent p-4 sm:p-10 rounded-lg">
-                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-gray-900">
+                <p className="text-xl sm:text-3xl md:text-4xl pacifico-regular text-gray-900 font-bold">
                   Roommates that vibe together, <br />thrive together
                 </p>
               </div>

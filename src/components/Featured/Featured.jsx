@@ -6,7 +6,7 @@ const Featured = ({ matePost }) => {
 
   return (
     <div className="card bg-base-100 shadow-sm border-2 border-cyan-500 mx-auto flex flex-col md:flex-row  max-w-5xl w-11/12">
-      <figure className="w-full md:w-1/2 h-64 md:h-auto">
+      <figure className="w-full md:w-1/2 h-64">
         <img
           className="w-full h-full object-cover"
           src={photo}
